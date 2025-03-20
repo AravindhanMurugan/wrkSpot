@@ -14,17 +14,33 @@ public class TimeCardServiceImpl implements TimeCardService {
 
     @Override
     public TimeCard createTimeCard(TimeCard timeCard) {
+        // If the geo location matched with the location of the hotel.
+        // Mark the status as clocked on and clocked off place.
+        /*if (timeCard.getGeoLocation()) {
+
+        }*/
         timeCard.setTimeCardStatus(TimeCardStatus.CLOCKED_ON);
         return timeCard;
     }
 
     @Override
     public TimeCard updateTimeCard(TimeCard timeCard) throws InvalidTimeCardException {
+        // If the geo location matched with the location of the hotel.
+        // Mark the status as clocked on and clocked off place.
+        /*if (timeCard.getGeoLocation()) {
+
+        }*/
         if (!timeCard.getTimeCardStatus().equals(TimeCardStatus.CLOCKED_ON)) {
             throw new InvalidTimeCardException("No clock on record found...");
         }
         timeCard.setTimeCardStatus(TimeCardStatus.CLOCKED_OFF);
         timeCard.setTotalWorkingHours(getTotalWorkingHours(timeCard.getClockedOnTime(), timeCard.getClockedOffTime()));
+        return timeCard;
+    }
+
+    @Override
+    public TimeCard approveTimeCard(TimeCard timeCard) throws InvalidTimeCardException {
+        timeCard.setTimeCardStatus(TimeCardStatus.APPROVED);
         return timeCard;
     }
 

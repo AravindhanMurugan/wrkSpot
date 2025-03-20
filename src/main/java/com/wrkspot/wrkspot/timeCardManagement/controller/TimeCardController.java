@@ -28,4 +28,9 @@ public class TimeCardController {
     public ResponseEntity<?> updateTimeCard(@RequestBody TimeCard timeCard) throws InvalidTimeCardException {
         return new ResponseEntity<>(timeCardServiceImpl.updateTimeCard(timeCard), HttpStatus.OK);
     }
+
+    @PutMapping("/approveTimeCard")
+    public ResponseEntity<?> approveTimeCard(@RequestBody TimeCard timeCard) throws InvalidTimeCardException {
+        return new ResponseEntity<>(timeCardServiceImpl.approveTimeCard(timeCard), HttpStatus.OK);
+    }
 }

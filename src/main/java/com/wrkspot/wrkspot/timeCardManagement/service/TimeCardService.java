@@ -7,4 +7,5 @@ public interface TimeCardService {
 
     TimeCard createTimeCard(TimeCard timeCard);
     TimeCard updateTimeCard(TimeCard timeCard) throws InvalidTimeCardException;
+    TimeCard approveTimeCard(TimeCard timeCard) throws InvalidTimeCardException;
 }

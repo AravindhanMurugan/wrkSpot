@@ -8,15 +8,15 @@ import java.util.Date;
 @Component
 public class TimeCard {
     private String userID;
-    private String geoLocation;
+    private String clockedOnGeoLocation;
+    private String clockedOffGeoLocation;
     private Date clockedOnTime;
     private Date clockedOffTime;
     private long totalWorkingHours;
     private TimeCardStatus timeCardStatus;
 
-    public TimeCard(String userID, String geoLocation, Date clockedOnTime, Date clockedOffTime) {
+    public TimeCard(String userID, Date clockedOnTime, Date clockedOffTime) {
         this.userID = userID;
-        this.geoLocation = geoLocation;
         this.clockedOnTime = clockedOnTime;
         this.clockedOffTime = clockedOffTime;
     }
@@ -29,12 +29,20 @@ public class TimeCard {
         this.userID = userID;
     }
 
-    public String getGeoLocation() {
-        return geoLocation;
+    public String getClockedOnGeoLocation() {
+        return clockedOnGeoLocation;
     }
 
-    public void setGeoLocation(String geoLocation) {
-        this.geoLocation = geoLocation;
+    public void setClockedOnGeoLocation(String clockedOnGeoLocation) {
+        this.clockedOnGeoLocation = clockedOnGeoLocation;
+    }
+
+    public String getClockedOffGeoLocation() {
+        return clockedOffGeoLocation;
+    }
+
+    public void setClockedOffGeoLocation(String clockedOffGeoLocation) {
+        this.clockedOffGeoLocation = clockedOffGeoLocation;
     }
 
     public Date getClockedOnTime() {
