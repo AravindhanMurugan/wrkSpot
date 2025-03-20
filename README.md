@@ -1,2 +1,0 @@
-# wrkSpot
- Hotel Management System
